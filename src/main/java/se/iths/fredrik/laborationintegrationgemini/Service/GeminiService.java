@@ -16,7 +16,7 @@ public class GeminiService {
     public String askGemini(String prompt){
 
         GenerateContentResponse response =
-                client.models.generateContent("gemini-1.5-pro", prompt, null);
+                client.models.generateContent("gemini-2.5-flash", prompt, null);
 
         return response.text();
     }
