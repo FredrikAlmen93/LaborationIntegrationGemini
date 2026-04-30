@@ -14,10 +14,16 @@ public class QuestionAnswer {
     private Long id;
 
     @NotBlank
-    private String question;
+    private String prompt;
 
     @NotBlank
-    @Column(length = 4000)
-    private String answer;
+    @Column(length = 5000)
+    private String response;
 
+    public QuestionAnswer(String prompt, String response) {
+        this.prompt = prompt;
+        this.response = response;
+    }
+
+    public QuestionAnswer() {}
 }

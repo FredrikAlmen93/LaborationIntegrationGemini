@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask Gemini</title>
+</head>
+<body>
+<h1>Ask Gemini</h1>
+<form th:action="@{/ask}" method="post">
+    <input type="text" name="prompt" size="50" placeholder="Enter a question"/>
+    <button type="submit">Ask</button>
+</form>
+
+<a th:href="@{/history}">History</a>
+
+<div th:each="item : ${history}">
+    <p><b>Fråga:</b> <span th:text="${item.prompt}"></span></p>
+    <p><b>Svar:</b> <span th:text="${item.response}"></span></p>
+    <hr>
+</div>
+</body>
+</html>

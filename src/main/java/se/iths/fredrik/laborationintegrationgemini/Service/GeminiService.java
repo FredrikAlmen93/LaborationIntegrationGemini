@@ -7,13 +7,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class GeminiService {
 
-    private final Client client = new Client();
+    private final Client client;
+
+    public GeminiService() {
+        this.client = new Client();
+    }
 
     public String askGemini(String prompt){
 
         GenerateContentResponse response =
                 client.models.generateContent("gemini-1.5-pro", prompt, null);
 
-        return response.toString();
+        return response.text();
     }
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+</head>
+<body>
+<h1>History</h1>
+
+<ul>
+    <li th:each="item : ${items}">
+        <b th:text="${item.question}"></b>
+        <p th:text="${item.answer}"></p>
+        <hr>
+    </li>
+</ul>
+
+<a href="/">Back</a>
+
+</body>
+</html>

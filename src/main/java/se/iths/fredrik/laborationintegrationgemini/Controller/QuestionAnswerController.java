@@ -16,20 +16,14 @@ public class QuestionAnswerController {
     }
 
     @GetMapping("/")
-    public String index(){
+    public String Home(Model model) {
+        model.addAttribute("history", service.getAll());
         return "index";
     }
 
     @PostMapping("/ask")
-    public String ask(@RequestParam String prompt, Model model){
-        String answer = service.AskAndSave(prompt);
-        model.addAttribute("answer", answer);
-        return "index";
-    }
-
-    @GetMapping("/history")
-    public String history(Model model){
-        model.addAttribute("items", service.getAll());
-        return "history";
+    public String ask(@RequestParam("question") String prompt) {
+        service.AskAndSave(prompt);
+        return "redirect:/";
     }
 }

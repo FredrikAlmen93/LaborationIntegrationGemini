@@ -11,20 +11,15 @@ public class QuestionAnswerService {
     private final GeminiService geminiService;
     private final QaRepository repo;
 
-    public QuestionAnswerService(GeminiService geminiService, QaRepository repo) {
+    public QuestionAnswerService(GeminiService geminiService,
+                                 QaRepository repo) {
         this.geminiService = geminiService;
         this.repo = repo;
     }
 
-    public String AskAndSave(String question){
-        String answer= geminiService.askGemini(question);
-
-        QuestionAnswer qa =  new QuestionAnswer();
-        qa.setQuestion(question);
-        qa.setAnswer(answer);
-
-        repo.save(qa);
-
+    public String AskAndSave(String prompt){
+        String answer = geminiService.askGemini(prompt);
+        repo.save(new QuestionAnswer(prompt, answer));
         return answer;
     }
 
