@@ -17,7 +17,7 @@ public class QuestionAnswerController {
 
     @GetMapping("/")
     public String Home(Model model) {
-        model.addAttribute("history", service.getAll());
+        model.addAttribute("items", service.getAll());
         return "index";
     }
 

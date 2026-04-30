@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface QaRepository extends JpaRepository<QuestionAnswer, Long> {
-    List<QuestionAnswer> response(String response);
+    List<QuestionAnswer> findAllByOrderByIdDesc();
 }

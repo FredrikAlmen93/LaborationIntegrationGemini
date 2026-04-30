@@ -24,6 +24,6 @@ public class QuestionAnswerService {
     }
 
     public List<QuestionAnswer> getAll(){
-        return repo.findAll();
+        return repo.findAllByOrderByIdDesc();
     }
 }
